@@ -1,0 +1,164 @@
+
+ tr:hover{
+     color: black;
+    cursor: pointer;
+ }
+
+ ::-webkit-scrollbar {
+    display: none;
+}
+
+h1{
+    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    margin-bottom: 20px;
+}
+
+.viajeshead{
+    display: flex;
+    justify-content: space-between;
+
+    &__texto{
+        text-align: center;
+    }
+}
+
+ .modalform{
+     display: grid;
+     grid-template-columns: 100%;
+     align-items: flex-start;
+     height: 90vh;
+ }
+
+ .test{
+     display: grid;
+     grid-template-columns: 100%;
+ }
+
+ #map{
+    height: 100%;
+}
+
+
+ .btnCancelar{
+     width: 100%;
+     background-color: transparent;
+
+ }
+
+ .integrantes{
+     display: flex;
+     margin:auto;
+ }
+
+ .inputParadas{
+     background-color: transparent;
+ }
+
+ .imgCancelarParada{
+     width:25px;
+     height:30px;
+ }
+
+ .filtroviaje{
+     display: flex;
+     justify-content: space-between;
+ }
+
+
+
+
+
+@media only screen and (max-width:768px){
+
+    .inputParadas{
+        background-color: transparent;
+        width: 100%;
+    }
+
+    .viajes{
+        display: grid;
+        grid-template-columns: 100%;
+         grid-template-rows: 50% 50%;
+        // height: 100vh;
+        grid-template-areas: 'mviajes'
+                             'sviajes';
+    }
+
+    tr:hover{
+        color: black;
+        cursor: pointer;
+    }
+
+    .viajesProp{
+        display: flex;
+        flex-direction: column;
+        // height: 50%;
+        justify-content: center;
+        align-content: start;
+        margin: 25px 0px 0px 0px ;
+        padding: 0px;
+        grid-area: 'mviajes';
+    }
+
+    .viajesS{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        // margin: 25px 0px 0px 0px;
+        padding: 0px;
+        grid-area: 'sviajes';
+    }
+
+    .butonb{
+        height: 35px;
+    }
+
+    .table-test{
+        height: 150px;
+        width: auto;
+    }
+
+    #altModal{
+        height: 200vh;
+    }
+
+
+    .modalform{
+        display: grid;
+        grid-template-columns: 100%;
+       
+    &__div1{
+        height: 50vh;
+        margin: 10px 2px 2px 2px;
+    }
+
+    }
+
+    .filtroviaje{
+        display: grid;
+        justify-content: center;
+    }
+
+    .titulo{
+        font-size:25px;
+    }
+   
+}
+
+
+@media only screen and (max-width:338px){
+
+    .viajeshead{
+        display: grid;
+        justify-content: space-between;
+
+        &__texto{
+            text-align: start;
+        }
+
+        // &__paradas{
+        //   visibility: hidden;
+        // }
+    }
+
+}

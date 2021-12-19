@@ -1,0 +1,123 @@
+<div class="container-fluid">
+  <div class="row mb-3">
+    <div style="padding: 0px;" class=" ml-3 col-12 col-md-4 col-lg-3">
+      <div  class="single-property-area wow fadeInUp" data-wow-delay="200ms"
+        style="visibility: visible; animation-delay: 200ms; animation-name: fadeInUp;">
+
+        <div class="property-thumb">
+          <img src="../../../assets/img/bg-img/6.jpg" alt="" data-pagespeed-url-hash="2669001425"
+            onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+        </div>
+
+        <div style="background-color: #4e73df;" class="property-desc-area">
+
+          <div class="property-title-seller">
+
+            <div class="property-title">
+             <a (click)="DatosUser()" routerLink="/perfiluser"><h4 style="color: black;">{{Viaje.Nombre}} {{Viaje.Apellido}}</h4> </a>
+              <div class="d-flex justify-content-between">
+                <span style="color: black;"><i style="color: green; margin-right: 10px;"
+                    class="fas fa-thumbs-up"></i>{{Viaje.CantBuena}}</span>
+                <span style="color: black;"><i style="color: red; margin-right: 10px;"
+                    class="fas fa-thumbs-down"></i>{{Viaje.CantMala}}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="property-info-area d-flex flex-wrap">
+            <p style="color: white;"><cite>{{Viaje.MensajeGral}}</cite></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7 col-lg-8 infoviaje">
+      <div class="infoviaje__infoa">
+        <div  class="paradas">
+          <span><i class="fas fa-map-marker-alt markOrigen"></i></span><h5 class="markOrigen">{{Viaje.DirOrigen}}</h5>
+        </div>
+        <div *ngIf="Viaje.DirPrParada!==null || Viaje.DirPrParada!==''"  class="paradas">
+          <span><i *ngIf="Viaje.DirPrParada!==null"  class="fas fa-map-marker-alt markOrigen"></i></span><h5 *ngIf="Viaje.DirPrParada!==null" class="markOrigen">{{Viaje.DirPrParada}}</h5>
+        </div>
+        <div *ngIf="Viaje.DirSgParada!==null"   class="paradas">
+          <span><i *ngIf="Viaje.DirSgParada!==null"  class="fas fa-map-marker-alt markOrigen"></i></span><h5 *ngIf="Viaje.DirSgParada!==null" class="markOrigen">{{Viaje.DirSgParada}}</h5>
+        </div>
+        <div *ngIf="Viaje.DirTrParada!==null"  class="paradas">
+          <span><i *ngIf="Viaje.DirTrParada!==null"  class="fas fa-map-marker-alt markOrigen"></i></span><h5 *ngIf="Viaje.DirTrParada!==null" class="markOrigen">{{Viaje.DirTrParada}}</h5>
+        </div>
+        <div class="paradas">
+          <span><i class="fas fa-map-marker-alt markDestino"></i></span><h5 class="markDestino">{{Viaje.DirDestino}}</h5>
+        </div>
+        <div  class="paradas">
+          <span><i style="color: #4e73df;" class="fas fa-calendar-alt"></i></span><h5 class="fechasalida">{{Viaje.FechaSalida | date:'dd/MM/yyyy'}}</h5>
+        </div>
+        <div  class="paradas"> 
+          <span><i class="fas fa-user-check mr-3" style="color: green;"></i></span><h5>{{Viaje.EspaciosDispo}}</h5>
+        </div>
+      </div>
+      <div class="infoviaje__infob">
+          <div class="infoviaje__infobinfo">
+            <!--Validacion Mascotas-->
+            <span *ngIf="Viaje.PerMascota=='Si'" class="mb-3 preferencias"><i class="fas fa-dog mr-2"></i>Permite Mascotas</span>
+            <span *ngIf="Viaje.PerMascota=='No'" class="mb-3 preferencias"><img src="../../../assets/img/Propet.png" style="height: 25px;" alt="">No Mascotas</span>
+            <!--Validación Cigarrillo-->
+            <span *ngIf="Viaje.PerFumar=='Si'" class="preferencias"><i class="fas fa-smoking mr-2"></i>Permite Fumar</span>
+            <span *ngIf="Viaje.PerFumar=='No'" class="preferencias"><img style="height: 25px;" src="../../../assets/img/Profumar.png" alt="">No Fumar</span>
+            <!--Validación Bebe-->
+            <span *ngIf="Viaje.PerBebe=='Si'" class="preferencias"><i class="fas fa-baby mr-2"></i>Bebe a bordo</span>
+            <span *ngIf="Viaje.PerBebe=='No'" class="preferencias"><img src="../../../assets/img/Probaby.png" alt="" value="No" style="height: 25px;">No bebe</span>
+          </div>
+          <div class="infoviaje__infoc">
+              <div>
+                  <!-- <h5>Distancia a Recorrer</h5> -->
+                  <p>Distancia a Recorrer</p>
+                  <p class="textInfo">{{Viaje.DistText}}</p>
+              </div>
+              <div>
+                  <!-- <h5>Duracion viaje</h5> -->
+                  <p>Tiempo estimado</p>
+                  <p class="textInfo">{{Viaje.DuraText}}</p>
+              </div>
+              <div class="mb-5">
+                  <p>Integrantes</p>
+                  <p class="textInfo"></p>
+              </div>
+              <button data-toggle="modal" data-target="#exampleModal" data-whatever="@Usuario"  class="infoviaje__btnMensaje">Enviar Mensaje</button>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="mapa col-md-12 col-lg-12">
+      <div id="mapa"></div>
+
+   </div>
+  </div>
+<!--VENTANA MODAL-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nuevo Mensaje</h5>
+          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <!-- <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Asunto:</label>
+              <input [(ngModel)]="Asunto" type="text" class="form-control" name="Asunto" id="recipient-name">
+            </div> -->
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Mensaje:</label>
+              <textarea [(ngModel)]="Mensaje" class="form-control" name="Mensaje" id="message-text"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button (click)="EnviarMensaje($event)"  type="button" class="btn btn-primary">Enviar Mensaje</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

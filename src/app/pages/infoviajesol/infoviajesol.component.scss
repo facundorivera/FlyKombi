@@ -1,0 +1,209 @@
+p{
+    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+h5{
+    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+p{
+    color: black;
+}
+
+.integrantes{
+    width: 50px;
+    height:50px;
+    border-radius: 10px;
+}
+
+.markOrigen{
+    color: orange;
+}
+
+.markDestino{
+    color: green;
+}
+
+.textInfo{
+    color: grey;
+    font-size: 15px;
+}
+
+#map{
+    height: 100%
+}
+
+.nombreUsuario:hover{
+    cursor: pointer;
+}
+
+.origenData{
+    width: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.destinoData{
+    width: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.infoviaje{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+    box-shadow: 10px 10px 10px 5px #aaaaaa;
+    margin-top: 1px;
+
+    &__infoa{
+        display: grid;
+        justify-content: start;
+        margin-left: 20px;
+       
+    }
+
+    &__infob{
+        display: grid;
+        grid-template-rows: 40% 60%;
+        
+
+    }
+
+    &__infobinfo{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        align-content: flex-start;
+        margin-top: 15px;
+        margin-bottom: 50px;
+    }
+
+    &__infoc{
+        display: grid;
+        align-content: flex-start;
+        justify-content: star;
+    }
+
+    &__btnMensaje{
+        border: none;
+        background-color: #4e73df;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+        height: 100px;
+        border-radius: 15px 0px 0px 0px;
+    }
+}
+
+.mapa{
+    height: 600px;
+}
+
+.iconsImg{
+    height:25px
+}
+
+.restIcons{
+    margin-right: 5px;
+}
+
+
+
+
+@media only screen and (max-width:580px)
+{
+    p{
+        margin-bottom: 2px;
+    }
+
+    .origenData{
+        width: 120px;
+        display: flex;
+        justify-content: start;
+    }
+    
+    .destinoData{
+        width: 120px;
+        display: flex;
+        justify-content: start;
+    }
+
+    .infoviaje{
+
+        &__btnMensaje{
+        border: none;
+        background-color: #4e73df;
+        position: absolute;
+        bottom: 0px;
+        //right: 0px;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+        height: 45px;
+        border-radius: 15px 0px 0px 0px;
+
+        }
+
+        &__infoa{
+            margin-left: 0px;
+        }
+    }
+
+    .markOrigen{
+        font-size: 15px;
+        text-align: start;
+    }
+
+    .markDestino{
+        font-size:15px;
+        text-align: start;
+    }
+
+    .fecha{
+        font-size: 15px;
+        text-align:start;
+    }
+
+    p{
+        font-size: 13px;
+    }
+
+    .textInfo{
+        font-size: 13px;
+    }
+
+    .iconsImg{
+        height: 20px;
+    }
+
+    .spanIcon{
+        font-size: 15px;
+    }
+
+    .integrantes{
+        height: 30px;
+        width: 30px;
+    }
+
+    .restIcons{
+        margin-right:0px;
+    }
+
+    #Contenedor{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+}
+
+@media only screen and (max-width:305px){
+
+    .infoviaje{
+        display:block;
+        justify-content: center;
+    }
+}

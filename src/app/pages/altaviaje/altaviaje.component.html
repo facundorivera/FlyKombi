@@ -1,0 +1,135 @@
+<div style=" padding: 0px; background-color: whitesmoke;" class="container-fluid">
+  <div class="contenedorViaje" style=" padding-top: 20px; ">
+    <div class="contenedorViaje__tipoUsuario mr-1">
+      <div class="tipoUserBack mb-3">
+        <div class="form-check ml-1">
+          <input (change)="TipoUsuario($event)" value="Pasajero" class="form-check-input" type="radio"
+            name="flexRadioDefault" id="Default5">
+          <label class="form-check-label" for="Default5">
+            Pasajero
+          </label>
+        </div>
+        <div class="form-check ml-1">
+          <input (change)="TipoUsuario($event)" value="Conductor" class="form-check-input" type="radio"
+            name="flexRadioDefault" id="Default6">
+          <label class="form-check-label" for="Default6">
+            Conductor
+          </label>
+        </div>
+      </div>
+    </div>
+    <div style="width: 80%; margin: auto;" class="contenedorViaje__datosViaje">
+      <div class="d-flex align-items-center mb-3">
+        <span><i class="fas fa-map-marker-alt inputOrigen"></i></span>
+        <input type="text" class="form-control ml-1 inputOrigen" id="PlacesOrigen" placeholder="Origen">
+      </div>
+      <div [hidden]="muestraparada"  class="dflex align-items-center mb-3">
+        <span><i class="fas fa-map-marker-alt inputDestino"></i></span>
+        <input type="text" class="form-control ml-1 inputDestino" id="PrimerParada" placeholder="Primer Parada">
+        <span><i (click)="QuitarParada('A')" style="color: red;" class="fas fa-times"></i></span>
+      </div>
+      <div [hidden]="muestrasegunda"  class="dflex align-items-center mb-3">
+        <span><i class="fas fa-map-marker-alt inputDestino"></i></span>
+        <input type="text" class="form-control ml-1 inputDestino" id="SegundaParada" placeholder="Segunda Parada">
+        <span><i (click)="QuitarParada('B')" style="color: red;" class="fas fa-times"></i></span>
+      </div>
+      <div [hidden]="muestratercera"  class="dflex align-items-center mb-3">
+        <span><i class="fas fa-map-marker-alt inputDestino"></i></span>
+        <input type="text" class="form-control ml-1 inputDestino" id="TercerParada" placeholder="Tercer Parada">
+         <span><i (click)="QuitarParada('C')"  style="color: red;" class="fas fa-times"></i></span>
+      </div>
+      <div class="d-flex align-items-center mb-3">
+        <span><i class="fas fa-map-marker-alt inputDestino"></i></span>
+        <input [(ngModel)]="destinoviaje" type="text" class="form-control ml-1 inputDestino" id="PlacesDestino" placeholder="Destino">
+      </div>
+      <div class="d-flex align-items-center mb-3">
+        <span><i class="far fa-calendar-alt"></i></span>
+        <input [(ngModel)]="viaje.FechaSalida" type="date" min="{{FechaHoy}}" class="form-control ml-1">
+      </div>
+      <div class="d-flex align-items-center mb-3">
+        <span><i class="far fa-clock"></i></span>
+        <input [(ngModel)]="viaje.HoraSalida" type="time" class="form-control ml-1">
+      </div>
+      <div class="d-grid mb-3">
+        <h5 *ngIf="tipoUsuario=='Conductor'">Lugares Disponibles</h5>
+        <h5 *ngIf="tipoUsuario=='Pasajero'">Espacios Solicitados</h5>
+        <div class="d-flex justify-content-evenly">
+          <div>
+            <input (change)="CantidadPersonas($event)" value="1" class="form-check-input" type="radio" name="flexRadioDefault2" id="Default1">
+            <label class="form-check-label" for="Default1">
+              1
+            </label>
+          </div>
+          <div>
+            <input  (change)="CantidadPersonas($event)" value="2" class="form-check-input" type="radio" name="flexRadioDefault2" id="Default2">
+            <label class="form-check-label" for="Default2">
+              2
+            </label>
+          </div>
+          <div>
+            <input  (change)="CantidadPersonas($event)" value="3" class="form-check-input" type="radio" name="flexRadioDefault2" id="Default3">
+            <label class="form-check-label" for="Default3">
+              3
+            </label>
+          </div>
+          <div>
+            <input  (change)="CantidadPersonas($event)" value="4" class="form-check-input" type="radio" name="flexRadioDefault2" id="Default4">
+            <label class="form-check-label" for="Default4">
+              4
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="mensajegral">
+        <h5>Mensaje General</h5>
+        <textarea [(ngModel)]="viaje.MensajeGral" class="form-control textarea"></textarea>
+      </div>
+    </div>
+    <div class="contenedorViaje__valoresViaje mt-1">
+      <div class="d-grid justify-content-start align-content-start">
+        <div class="tiempoViaje mb-3">
+          <h5 class="text-start">Distancia</h5>
+          <p>{{this.viaje.DistText}}</p>
+        </div>
+        <div class="tiempoViaje mb-3">
+          <h5>Tiempo Estimado</h5>
+          <p>{{this.viaje.DuraText}}</p>
+        </div>
+        <!-- <div class="tiempoViaje">
+          <h5>Tiempo Estimado</h5>
+          <p>{{distanciaparadas}}</p>
+        </div> -->
+      </div>
+      <div class="preferencias">
+        <h6 class="mb-4">Preferencias</h6>
+        <!-- <div class="d-grid"> -->
+        <div class="d-flex ml-1 justify-content-evenly ">
+          <div class="form-check mr-3">
+            <input class="form-check-input" [(ngModel)]="PerMascota" (change)="PreMascota($event)" type="checkbox" value="No" id="flexCheckDefault">
+            <span> <img src="../../../assets/img/Propet.png" style="height: 25px;" alt=""> </span>
+          </div>
+          <div class="form-check mr-3">
+            <input class="form-check-input" [(ngModel)]="PerBebe" (change)="PreBebe($event)" type="checkbox" value="No" id="flexCheckDefault">
+            <span> <img src="../../../assets/img/Probaby.png" alt="" value="No" style="height: 25px;"> </span>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" [(ngModel)]="PerFumar" (change)="PreFuma($event)" type="checkbox" id="flexCheckDefault">
+            <span><img style="height: 25px;" src="../../../assets/img/Profumar.png" alt=""></span>
+          </div>
+        </div>
+      </div>
+      <div class="contenedorboton align-items-center">
+        <div>
+          <label class="mr-2 mb-3" for="checkRuta">Todo Listo!</label>
+          <input [(ngModel)]="todolisto" (change)="MostrarRuta(todolisto?'A':'B')"  type="checkbox">
+        </div>
+        <div>
+          <button (click)="PublicarViaje()" class="contenedorViaje__btnCrear">Crear</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="contenedorViaje" style="height: 100vh;" id="map"></div>
+</div>

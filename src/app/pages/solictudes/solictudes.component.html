@@ -1,0 +1,131 @@
+<section class="mt-10">
+  <div class="container">
+    <h1 class="text-center">Solicitudes Recibidas</h1>
+    <hr>
+    <div class="row">
+    <div class="form-check groupcheck">
+      <div>
+      <input (change)="filtro($event)" value=1 class="form-check-input estado"  type="radio" name="flexRadioDefault" id="Default11">
+      <label class="form-check-label checkestado" for="Default11">
+        Pendientes
+      </label>
+    </div>
+      <div>
+      <input (change)="filtro($event)" value=2 class="form-check-input estado"  type="radio" name="flexRadioDefault" id="Default9">
+      <label class="form-check-label checkestado" for="Default9">
+        Aceptadas
+      </label>
+    </div>
+    <div>
+      <input (change)="filtro($event)" value=3 class="form-check-input estado"  type="radio" name="flexRadioDefault" id="Default10">
+      <label class="form-check-label checkestado" for="Default10">
+        Rechazadas
+      </label>
+    </div>
+    <div>
+      <input (change)="filtro($event)" value=0 class="form-check-input estado"  type="radio" name="flexRadioDefault" id="Default11">
+      <label class="form-check-label checkestado" for="Default11">
+       Todas
+      </label>
+    </div>
+    </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let sol of listadoSol; index as i ">
+        <div class="single-agent-area wow fadeInUp" data-wow-delay="200ms"
+          style="visibility: visible; animation-delay: 200ms; animation-name: fadeInUp;">
+
+          <!-- <div class="single-agent-thumb">
+            <img src="../../../assets/img/bg-img/6.jpg" alt="" data-pagespeed-url-hash="330732351"
+              onload="pagespeed.CriticalImages.checkImageForCriticality(this);"> -->
+            <!-- <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button"
+              aria-expanded="true" aria-controls="collapseCardExample">
+              <h6>Ver datos</h6>
+            </a> -->
+          <!-- </div> -->
+
+          <!-- <div class="collapse show" id="collapseCardExample"> -->
+          <div class=" animationDrop">
+            <div class="agent-info">
+              <a class="nombreSol" (click)="RedireccionarPerfil(sol.IDSolicitante)">{{sol.NombreSol}} {{sol.ApellidoSol}}
+              <span *ngIf="sol.TipoUsuarioSolicitante=='Conductor'"><i class="fas fa-car"></i></span>
+              <span *ngIf="sol.TipoUsuarioSolicitante=='Pasajero'"><i class="fas fa-users"></i></span> </a>
+              <p *ngIf="sol.Celular>0" ><i class="fa fa-phone" aria-hidden="true"> {{sol.Celular}}</i></p>
+              <p><i  class="fa fa-envelope" aria-hidden="true"></i> {{sol.EmailSol}}</p>
+              <p *ngIf="sol.TipoUsuarioSolicitante=='Pasajero'">Espacios Necesarios : {{sol.EspaciosNeces}}</p>
+              <hr>
+              <span><p class="ordest">Viaje #:</p> {{sol.IDViaje}}</span>
+              <span><p class="ordest">Origen:</p> {{sol.DirOrigen}}</span>
+              <span><p class="ordest">Destino:</p> {{sol.DirDestino}}</span>
+              <!-- <p><i class="fab fa-skype" aria-hidden="true"></i> Johnsmith.colorlib</p> -->
+            </div>
+
+            <div *ngIf="sol.EstadoSol==='Pendiente'" id="EstadoSol{{i}}" class="agent-social-info d-flex">
+              <button (click)="AceptarSol(i)"  class="btnSolicitud">Aceptar</button>
+              <button (click)="RechazarSol(i)" class="btnSolicitud">Rechazar</button>
+            </div>
+             <div class="agent-social-info d-flex">
+              <button id="EstadoSoli{{i}}" *ngIf="sol.EstadoSol!=='Pendiente' && sol.Arrepentido!=='Si'" class="btnSolicitud" style="width: 100%;">{{sol.EstadoSol}}</button>
+            </div>
+            <div class="agent-social-info d-flex">
+              <button disabled *ngIf="sol.EstadoSol!=='Pendiente' && sol.Arrepentido==='Si'" class="btnSolicitud" style="width: 100%;">Usuario Arrepentido</button>
+            </div> 
+            
+             <div *ngIf="sol.EstadoSol==='Aceptada' && sol.Arrepentido!=='Si'" class="agent-social-info d-flex">
+              <a style="background-color: #4e73df; border-top: 1px solid black;" href="{{sol.FacebookSol}}" target="_blank"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+              <a style="background-color: #4e73df; border-top: 1px solid black;" href="{{sol.TwitterSol}}" target="_blank" ><i class="fab fa-twitter" aria-hidden="true"></i></a>
+              <a style="background-color: #4e73df; border-top: 1px solid black;" href="{{sol.PinterestSol}}" target="_blank"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a>
+              <a style="background-color: #4e73df; border-top: 1px solid black;" href="{{sol.InstagramSol}}" target="_blank"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+              <a style="background-color: #4e73df; border-top: 1px solid black;" href="https://api.whatsapp.com/send?phone=+{{sol.Celular}}" target="_blank"  ><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!--Ventana Modal-->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <form action="">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Nombre</span>
+            <input type="text" [(ngModel)]="NombreSol" name="NombreSol" class="form-control" aria-label="Origen"
+              aria-describedby="basic-addon1" disabled>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Apellido</span>
+            <input type="text" [(ngModel)]="ApellidoSol" name="DirDestino" class="form-control" disabled>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Fecha Solicitud</span>
+            <input type="text" [(ngModel)]="FechaSol" name="FechaSol" class="form-control" disabled>
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Estado</span>
+            <input type="text" [(ngModel)]="EstadoSol" name="EstadoSol" class="form-control" disabled>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" id="cancelarViaje" class="btn btn-danger"  data-bs-dismiss="modal">Cancelar</button> -->
+        <button type="button" class="btn btn-danger {{Hidebtn}}" (click)="RechazarSol(0)">Rechazar</button>
+        <button type="button" class="btn btn-secondary {{Hidebtn}}" (click)="AceptarSol(0)"
+          data-bs-dismiss="modal">Aceptar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </div>
+  </div> -->
+<!--Fin de Ventana Modal-->
+<!-- </div> -->

@@ -1,0 +1,136 @@
+<section class="mt-10">
+  <div class="container">
+    <h1 class="text-center titulo">Viajes Publicados</h1>
+    <hr>
+    <div class="row">
+      <div class="form-check filtroviaje">
+        <div>
+        <input (change)="filtro($event)" value="Abierto" class="form-check-input"  type="radio" name="flexRadioDefault" id="Default11">
+        <label class="form-check-label" for="Default11">
+          Abierto
+        </label>
+      </div>
+        <div>
+        <input (change)="filtro($event)" value="Completo" class="form-check-input"  type="radio" name="flexRadioDefault" id="Default9">
+        <label class="form-check-label" for="Default9">
+          Completo
+        </label>
+      </div>
+      <div>
+        <input (change)="filtro($event)" value="Cancelado" class="form-check-input"  type="radio" name="flexRadioDefault" id="Default10">
+        <label class="form-check-label" for="Default10">
+         Cancelado
+        </label>
+      </div>
+      <div>
+        <input (change)="filtro($event)" value="Carpooleado" class="form-check-input"  type="radio" name="flexRadioDefault" id="Default11">
+        <label class="form-check-label" for="Default11">
+         Carpooleado
+        </label>
+      </div>
+      </div>
+      </div>
+      <hr>
+    <div class="row">
+      <!-- Single Property Area -->
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let viaje of viaje; index as i">
+        <div class="single-property-area wow fadeInUp" data-wow-delay="200ms">
+          <!-- Property Thumb -->
+          <!-- <div class="property-thumb">
+            <img src="../../../assets/img/bg-img/6.jpg" alt="">
+          </div> -->
+          <!-- Property Description -->
+          <div class="property-desc-area">
+            <!-- Property Title & Seller -->
+            <div class="property-title-seller viajeshead">
+              <!-- Title -->
+              <!-- Seller -->
+              <div class="property-seller">
+                <p>Fecha Salida</p>
+                <!-- <h6 [(ngModel)]="FechaSalida" >{{viaje.FechaSalida}}</h6> -->
+                <input min="{{FechaHoyControl}}" (change)="ObtenerFecha($event)"  id="fechaviaje{{i}}" disabled style="background-color: transparent; border:none;" type="date" [value]="viaje.FechaSalida | date:'yyyy-MM-dd'">
+                <p>Hora Salida </p>
+                <input style="border: none; background-color:transparent;" id="horasalida{{i}}" disabled (change)="ObtenerHora($event)" type="time" [value]="viaje.HoraSalida">
+              <p class="mt-2" style="color: black;" *ngIf="viaje.TipoUsuario=='Conductor' && viaje.EspaciosLibresPasaj > 0">Libre: {{viaje.EspaciosLibresPasaj}} Asientos</p>
+              <p class="mt-2" style="color: black;" *ngIf="viaje.TipoUsuario=='Pasajero' && viaje.EspaciosNeces > 0">Necesario: {{viaje.EspaciosNeces}} Asientos</p>
+              </div>
+              <div  class="property-seller">
+                <h6 class="viajeshead__texto" *ngIf="viaje.TipoUsuario==='Conductor'"><i class="fas fa-car"></i></h6>
+                <h6 class="viajeshead__texto" *ngIf="viaje.TipoUsuario==='Pasajero'"><i class="fas fa-users"></i></h6>
+                <h6 style="cursor: pointer;" (click)="ObtenerIntegrantes(viaje.IDViaje,'No','No')"  class="mt-3" data-toggle="modal" data-target="#exampleModal">Integrantes</h6>
+                <h6 class="viajeshead__texto mt-3">#{{viaje.IDViaje}}</h6>
+
+              </div>
+            </div>
+            <!-- Property Info -->
+            <div class="property-info-area d-flex flex-wrap">
+              <p>Origen: <span>{{viaje.DirOrigen}}</span></p>
+              <p>Destino: <span>{{viaje.DirDestino}}</span></p>           
+            </div>
+
+            <div class="property-info-area d-flex flex-wrap">           
+                <p>Parada A</p>
+               <span><input  disabled  class="inputParadas viajehead__paradas" [(ngModel)]="viaje.DirPrParada" type="text" id="Parada{{i}}"> <img   id="BorrarParada{{i}}" *ngIf="viaje.DirPrParada!=null" (click)="QuitarParada(i,'A')" class="imgCancelarParada" src="../../../assets/img/RechazaViaje.png" alt="Quitar Parada A"></span>            
+                <p>Parada B</p>
+                <span><input  disabled class="inputParadas viajehead__paradas" [(ngModel)]="viaje.DirSgParada" type="text" id="Parada2{{i}}"> <img  id="BorrarParada2{{i}}" *ngIf="viaje.DirSgParada!=null" (click)="QuitarParada(i,'B')" class="imgCancelarParada" src="../../../assets/img/RechazaViaje.png" alt="Quitar Parada B"></span>           
+                <p>Parada C</p>
+                <span><input  disabled class="inputParadas viajeshead__paradas" [(ngModel)]="viaje.DirTrParada" type="text" id="Parada3{{i}}"> <img  id="BorrarParad3{{i}}"  *ngIf="viaje.DirTrParada!=null" (click)="QuitarParada(i,'C')" class="imgCancelarParada" src="../../../assets/img/RechazaViaje.png" alt="Quitar Parada C"></span>
+            </div>
+          </div>
+          <!-- Property Price -->
+          <div class="property-price">
+            <p class="badge-rent">{{viaje.EstadoViaje}}</p>
+            <input *ngIf="viaje.EstadoViaje!=='Cancelado' && viaje.EstadoViaje!=='Carpooleado'" id="btn{{i}}" (click)="Datoviaje(i)" data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop" class="price" type="button" value="Editar">
+            <input style="visibility: hidden;"  *ngIf="viaje.EstadoViaje!=='Cancelado'" id="btn2{{i}}" (click)="Confirmar(i)" data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop" class="price" type="button" value="Aceptar">
+          </div>
+          <!-- <div class="property-price">
+            <input (click)="ObtenerIntegrantes(viaje.IDViaje)" class="btn-primary" style="width: 100%;" type="button" value="Integrantes" data-toggle="modal" data-target="#exampleModal">
+          </div> -->
+          <div  (click)="BajaViaje(i)" *ngIf="(viaje.EstadoViaje==='Abierto' || viaje.EstadoViaje ==='Completo') && DiasRestantes(viaje.FechaSalida,this.FechaHoy) > 0 "class="btn-danger">
+            <input style="width: 100%;" type="button" value="Cancelar Viaje">
+          </div>
+          <div (click)="CerrarViajeUsuario(viaje.IDViaje)"  *ngIf="(viaje.EstadoViaje==='Abierto' || viaje.EstadoViaje ==='Completo') && DiasRestantes(viaje.FechaSalida,this.FechaHoy) === 0 "class="btn-danger">
+            <input style="width: 100%;" type="button" value="Cerrar Viaje">
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body integrantes">
+        <div  *ngFor="let item of src; index as i">
+          <img data-dismiss="modal" data-toggle="modal" data-target="#mensajemodal" (click)="ChatIntegrante(i)" style="width: 50px; height: 50px;" [src]="item" alt="Foto Usuario">
+        </div>    
+      </div>
+      <div class="modal-footer">
+        <button type="button"  class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div  class="modal fade" id="mensajemodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div>
+          <textarea [(ngModel)]="mensaje.Mensaje" name="Mensaje" id="mensajetext" style="width: 100%;"></textarea>
+        </div>    
+      </div>
+      <div class="modal-footer">
+        <button type="button"  class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" (click)="EnviarMensaje()"  class="btn btn-secondary">Enviar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

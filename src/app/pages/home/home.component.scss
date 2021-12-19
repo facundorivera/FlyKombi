@@ -1,0 +1,86 @@
+#map{
+    height: 20%;
+}
+
+a{
+    text-decoration: none;
+}
+
+.btnSolicitud{
+    display: grid;
+    width: auto;
+    height: 60px;
+    border: none;
+    background-color: transparent;
+    font-size: 15px;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid black;
+}
+
+.btnSolicitud:hover{
+    background-color:whitesmoke ;
+}
+
+.btnTipoConductor{
+    width: 50%;
+    height: 45px;
+    border: none;
+    background-image: url("../../../assets/img/car.png");
+    
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.btnTipoPasajero{
+    width: 50%;
+    height: 45px;
+    border: none;
+    background-image: url("../../../assets/img/boy.png");
+    
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.imagenhome{
+    background: url("../../../assets/img/bg-img/pexels-wall.jpg");
+    background-position: center;
+    background-size: cover;
+
+}
+
+.btnTipoConductor:hover{
+    border: 1px solid black;
+}
+
+.btnTipoPasajero:hover{
+    border: 1px solid black;
+}
+
+
+
+
+// .homeBusqueda{
+//     height: 140px;
+//     overflow: hidden;
+// }
+
+// .testimg{
+//     margin-left: 250px;
+// }
+.testimg{
+    display:flex;
+    justify-content: center;
+}
+
+@media only screen and (max-width:768px) {
+    .homeBusqueda{
+        height: 100%;
+    }
+
+    .mbtn{
+        margin-top: 30px;
+    }
+
+    
+}

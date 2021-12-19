@@ -1,0 +1,187 @@
+<!-- <div class="divtest">
+  <div class="container bootstrap snippets bootdey">
+    <div class="row">
+      <div class="profile-nav col-md-3">
+        <div class="panel">
+          <div class="user-heading round">
+            <a href="#">
+              <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+            </a>
+            <h1>{{User.Nombre}} {{User.Apellido}}</h1>
+            <p>{{User.Email}}</p>
+          </div>
+
+            <ul class="nav nav-pills nav-stacked">
+                <li class=""><a href="#"> <i class="fa fa-facebook"></i>{{User.Facebook}}</a></li>
+                <li class=""><a href="#"> <i class="fa fa-instagram"></i>{{User.Instagram}}</a></li>
+                <li class=""><a href="#"> <i class="fa fa-whatsapp"></i>{{User.Celular}}</a></li>
+                <li class=""><a href="#"> <i class="fa fa-pinterest"></i>{{User.Pinterest}}</a></li>
+            </ul> 
+        </div>
+      </div>
+      <div class="profile-info col-md-9">
+        <div class="panel">
+        </div>
+        <div class="panel">
+          <div class="bio-graph-heading">
+            Frase legendaria
+          </div>
+          <div class="panel-body bio-graph-info">
+            <h1>Datos</h1>
+            <div class="row">
+              <div class="bio-row">
+                <p><span>Nombre </span>: {{User.Nombre}}</p>
+              </div>
+              <div class="bio-row">
+                <p><span>Apellido</span>: {{User.Apellido}}</p>
+              </div>
+              <div class="bio-row">
+                <p><span>Localidad </span>: {{User.Localidad}}</p>
+              </div>
+              <div class="bio-row">
+                <p><span>Occupation </span>: UI Designer</p>
+              </div>
+              <div class="bio-row">
+                <p><span>Email </span>: {{User.Email}}</p>
+              </div>
+              <div class="bio-row">
+                <p><span>Ceular </span>: {{User.Celular}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div class="container">
+  <div class="main-body">
+        <div class="row gutters-sm">
+          <div class="col-md-4 mb-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                  <img [src]="src"  alt="Admin" class="rounded-circle" width="150">
+                  <div class="mt-3">
+                    <h4>{{User.Nombre}} {{User.Apellido}}</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card mt-3">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                  <i class="fab fa-pinterest-p" aria-hidden="true"></i><h6 class="mb-0">Pinterest</h6>
+                  <span class="text-secondary"><input disabled style="border: none; background-color: transparent;" type="text"></span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                  <i class="fab fa-twitter" aria-hidden="true"></i><h6 class="mb-0">Twitter</h6>
+                  <span class="text-secondary"><input disabled style="border: none; background-color: transparent;"  type="text"></span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                  <i class="fab fa-instagram" aria-hidden="true"></i><h6 class="mb-0">Instagram</h6>
+                  <span class="text-secondary"><input disabled style="border: none; background-color: transparent;"  type="text"></span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                  <i class="fab fa-facebook-f" aria-hidden="true"></i><h6 class="mb-0">Facebook</h6>
+                  <span class="text-secondary"><input disabled style="border: none; background-color: transparent;"   type="text"></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Nombre</h6>
+                  </div>
+                  <div  class="col-sm-9 text-secondary">
+                   <input [(ngModel)]="User.Nombre" disabled  style="border: none; background-color: transparent;"  type="text">
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Apellido</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <input [(ngModel)]="User.Apellido" disabled  style="border: none; background-color: transparent;"    type="text">
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Email</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <input [(ngModel)]="User.Email" disabled  style="border: none; background-color: transparent;"  type="text">
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Celular</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <input [(ngModel)]="User.Celular"  disabled style="border: none; background-color: transparent;"  type="text">
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Localidad</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <input [(ngModel)]="User.Localidad" disabled  style="border: none; background-color: transparent;"  type="text">
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Edad</h6>
+                  </div>
+                  <div class="col-sm-9 text-secondary">
+                    <input [(ngModel)]="User.Edad" disabled style="border: none; background-color: transparent;"  type="number">
+                  </div>
+                </div>
+                <hr>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+<h2 class="text-center">Calificaciones</h2>
+<section class="team-section py-5">
+    <div class="container">
+	    <div  class="row justify-content-start">  
+		    <div  *ngFor="let item of Calificaciones; index as i"  class="col-12 col-md-6 col-lg-4">
+			    <div  class="card border-0 shadow-lg pt-5 my-5 position-relative">
+				    <div style="border:1px solid #4e73df;" class="card-body p-4">
+					    <div  class="member-profile position-absolute w-100">
+					        <img class="rounded-circle mx-auto d-inline-block shadow-sm" style="width: 30x; height:30px" [src]="imagencalifica[i]" alt="Foto Usuario">
+				        </div>
+					    <div class="card-text pt-1">
+						    <h5 class="member-name mb-0 text-center text-primary font-weight-bold">{{item.NombreCalifica}} {{item.ApellidoCalifica}}</h5>
+						    <div class="mb-3 text-center">{{item.Comentario}}</div>
+						    <div></div>
+					    </div>
+				    </div>
+				    <div class="card-footer theme-bg-primary border-0 text-center">
+					    <ul class="social-list list-inline mb-0 mx-auto">
+				            <li *ngIf="item.Puntaje =='Buena'" class="list-inline-item"><i style="color:green;" class="fa fa-thumbs-up" aria-hidden="true"></i></li>
+				            <li *ngIf="item.Puntaje=='Mala'" class="list-inline-item"><i style="color:red;" class="fa fa-thumbs-down" aria-hidden="true"></i></li>
+			            </ul>
+				    </div>
+			    </div>
+		    </div>
+	    </div>
+    </div>
+</section>
+  
+  

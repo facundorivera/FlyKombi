@@ -1,0 +1,27 @@
+<header class="header-area">  
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">FlyKombi</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+    <div *ngIf="!Prueba; else templateName"> 
+      <ul class="navbar-nav">
+        <li class="active"><a class="nav-link" routerLink="home">Inicio</a></li>
+        <li class="active"><a class="nav-link" routerLink="login">Iniciar Sesion</a></li>
+        <li class="active"><a class="nav-link" routerLink="registro">Registrarme</a></li>
+      </ul>
+    </div>
+    <ng-template #templateName>
+      <ul class="navbar-nav" id="navbarSupportedContent">
+        <li class="active"><a class="nav-link" routerLink="home">Inicio</a></li>
+        <li class="active"><a class="nav-link"  routerLink="altaviaje">Publicar un viaje</a></li>
+        <li class="active"><a class="nav-link" style="color: green;" routerLink="dashperfil/dashboard">{{Prueba}}</a></li>
+        <li class="active" (click)="CerrarSesion()"><a class="nav-link" >Cerrar Sesion</a></li>
+      </ul>   
+    </ng-template> 
+  </div>
+</nav>
+</header>

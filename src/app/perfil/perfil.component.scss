@@ -1,0 +1,80 @@
+.foto{
+    width: 250px;
+    border: 1px solid black;
+    height: 200px;
+    margin-left: 15px;
+}
+
+.perfil{
+    display: grid;
+    grid-template-columns: 40% 40%;
+    justify-content: space-evenly;
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+h1{
+    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    margin-bottom: 20px;
+}
+
+.botones{
+    display: flex;
+    justify-content: center;
+    margin-top: 120px;
+}
+
+// .botones{
+//     display: grid;
+//     grid-template-columns: 50% 50%;
+//     position: relative;
+//     top: 150px;
+//     left: 200px;
+// }
+
+.form-btn{
+    margin: auto;
+}
+// .forms{
+//     display: grid;
+//     justify-content: center;
+// }
+
+@media only screen and (max-width: 768px) {
+
+    .perfil{
+        display: grid;
+        grid-template-columns: 100%;
+    }
+
+    .form-input{
+        width: 100%;
+    }
+
+    .form-btn{
+        margin-top: 10px;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .botones{
+        display: grid;
+        grid-template-columns: 100%;
+        margin-top: 15px;  
+    }
+
+    .inputimage{
+        font-size: 15px;
+    }
+  
+}

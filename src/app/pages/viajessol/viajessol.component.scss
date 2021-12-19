@@ -1,0 +1,32 @@
+.btnViaje{
+    width: 100%;
+    height: 30px;
+    border-radius: 0 0 5px 0;
+}
+.btnViaje:hover{
+    background-color: #92c800;
+}
+
+h1{
+    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    margin-bottom: 20px;
+}
+
+
+
+.filtro{
+    display:flex;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width:768px){
+
+    .filtro{
+        display:grid;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+}
+

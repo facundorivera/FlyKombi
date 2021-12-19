@@ -1,0 +1,53 @@
+<body class="bg-gradient-primary">   
+    <div class="container">
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">        
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Crea una cuenta!</h1>
+                            </div>
+                            <form [formGroup]="RegistroForm" action="#" class="user">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input formControlName="Nombre" [(ngModel)]="usuario.Nombre" 
+                                        [class.is-invalid]="RegistroForm.get('Nombre').touched && RegistroForm.get('Nombre').invalid"
+                                        type="text" class="form-control form-control-user" placeholder="Nombre">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" 
+                                        formControlName="Apellido" [(ngModel)]="usuario.Apellido"
+                                        [class.is-invalid]="RegistroForm.get('Apellido') && RegistroForm.get('Apellido').invalid"
+                                        class="form-control form-control-user" 
+                                            placeholder="Apellido">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email"
+                                    required class="form-control form-control-user" 
+                                     [class.is-invalid]="RegistroForm.get('Usuario').touched && RegistroForm.get('Usuario').invalid"
+                                    placeholder="Correo Electronico" formControlName="Usuario" [(ngModel)]="usuario.Usuario">
+                                </div>
+                                <div class="form-group">
+                                    <!-- <div class="col-sm-6 mb-3 mb-sm-0"> -->
+                                        <input type="password" 
+                                        [class.is-invalid]="RegistroForm.get('Contrasenia').touched && RegistroForm.get('Contrasenia').invalid"
+                                        class="form-control form-control-user" placeholder="Contraseña" formControlName="Contrasenia" [(ngModel)]="usuario.Contrasenia"  >
+                                </div>
+                                <button type="submit" [disabled]="!RegistroForm.valid"  style="color:white" (click)="altaUsuario()"  class="btn btn-primary btn-user btn-block">
+                                    Registrar cuenta
+                                </button>
+                                <hr>
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" routerLink="/login">Ya estas registrado? Ingresar!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

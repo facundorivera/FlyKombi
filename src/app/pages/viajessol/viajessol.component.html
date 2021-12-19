@@ -1,0 +1,206 @@
+ <section class="mt-10">
+    <div class="container"> 
+      <h1 class="text-center">Viajes Solicitados</h1>
+      <hr>
+      <div class="row">
+        <div class="form-check filtro">
+          <div>
+          <input (change)="filtro($event)" value="Abierto" class="form-check-input"  type="radio" name="flexRadioDefault" id="Default12">
+          <label class="form-check-label" for="Default12">
+            Abierto
+          </label>
+        </div>
+        <div>
+          <input (change)="filtro($event)" value="Completo" class="form-check-input"  type="radio" name="flexRadioDefault" id="Default10">
+          <label class="form-check-label" for="Default10">
+            Completo
+          </label>
+        </div>
+          <div>
+          <input (change)="filtro($event)" value="Cancelado" class="form-check-input"  type="radio" name="flexRadioDefault" id="Default9">
+          <label class="form-check-label" for="Default9">
+            Cancelado
+          </label>
+        </div>      
+        <div >
+          <input (change)="filtro($event)" value="Carpooleado" class="form-check-input"  type="radio" name="flexRadioDefault" id="Default11">
+          <label class="form-check-label" for="Default11">
+           Carpooleado
+          </label>
+        </div>
+        <div >
+          <input (change)="filtro($event)" value="Arrepentido" class="form-check-input"  type="radio" name="flexRadioDefault" id="Default11">
+          <label class="form-check-label" for="Default11">
+           Arrepentido
+          </label>
+        </div>
+        </div>
+        </div>
+        <hr>
+      <div class="row">  
+        <!-- Single Property Area -->
+         <div class="col-12 col-md-6 col-lg-4" *ngFor="let viaje of listadoviajes; index as i">
+          <div class="single-property-area wow fadeInUp" data-wow-delay="200ms"> 
+            <!-- Property Thumb -->
+              <!-- <div class="property-thumb">
+                <img  src="../../../assets/img/bg-img/6.jpg" alt=""> 
+            </div>  -->
+            <!-- Property Description -->
+             <div  class="property-desc-area"> 
+              <!-- Property Title & Seller -->
+               <div class="property-title-seller d-flex justify-content-between"> 
+                <!-- Title -->
+                <!-- Seller -->
+                <div class="property-seller">
+                  <p>Fecha Salida</p>
+                  <h6>{{viaje.FechaSalida}}</h6>
+                </div>
+              </div> 
+              <!-- Property Info -->
+               <div class="property-info-area d-flex flex-wrap">
+                <p>Origen: <span>{{viaje.DirOrigen}}</span></p>
+                <p>Destino: <span>{{viaje.DirDestino}}</span></p>
+                <p *ngIf="viaje.DirPrParada!==null">Parada A:<span *ngIf="viaje.DirPrParada!==null">{{viaje.DirPrParada}}</span></p>
+                <p *ngIf="viaje.DirSgParada!==null">Parada A: <span *ngIf="viaje.DirSgParada!==null">{{viaje.DirSgParada}}</span></p>
+                <p *ngIf="viaje.DirTrParada!==null">Parada A: <span *ngIf="viaje.DirTrParada!==null">{{viaje.DirTrParada}}</span></p>
+                <p >Integrantes: <span>{{viaje.Integrantes}}</span></p>
+              </div>
+            </div> 
+            <!-- Property Price -->
+             <div class="property-price">
+              <p *ngIf="viaje.Arrepentido!=='Si'" class="badge-rent">{{viaje.EstadoViaje}}</p>
+              <input *ngIf="viaje.Arrepentido!=='Si'" (click)="Datoviaje(i)" routerLink="/dashperfil/infoviajesol" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="price" type="button"
+                value="Ver">
+              <!-- <input (click)="BajarseViaje(i)" class="price" type="button"
+                value="Bajarse"> -->
+            </div>
+            <div *ngIf="viaje.Arrepentido!=='Si' && viaje.EstadoViaje!=='Cancelado' && viaje.EstadoViaje!=='Carpooleado'" class="property-price">
+              <input  (click)="BajarseViaje(i)" class="btnViaje" type="button"
+              value="Bajarse">
+            </div>
+            <div id="Estadoviaje{{i}}" style="background-color: #bd1e1eff;" *ngIf="viaje.Arrepentido==='Si'" class="property-price">
+              <input  class="btnViaje" type="button" disabled
+              value="dado de baja">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+    <!-- <div class="col-12 col-md-6 col-lg-4">
+      <div class="single-agent-area wow fadeInUp" data-wow-delay="200ms" style="visibility: visible; animation-delay: 200ms; animation-name: fadeInUp;">
+      
+      <div class="single-agent-thumb">
+      <img src="img/bg-img/x49.jpg.pagespeed.ic.SM8V1mUbpv.webp" alt="" data-pagespeed-url-hash="330732351" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
+      </div>
+      
+      <div class="agent-info">
+      <a href="#">Diana Ross</a>
+      <p><i class="fa fa-phone" aria-hidden="true"></i> (12) 345-6789</p>
+      <p><i class="fa fa-envelope" aria-hidden="true"></i> Johnsmith@colorlib.com</p>
+      <p><i class="fab fa-skype" aria-hidden="true"></i> Johnsmith.colorlib</p>
+      </div>
+      
+      <div class="agent-social-info d-flex">
+      <a href="#"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+      <a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+      <a href="#"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a>
+      <a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+      <a href="#"><i class="fab fa-tumblr" aria-hidden="true"></i></a>
+      </div>
+      </div>
+      </div> -->
+   </section> 
+ 
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop">
+    <div style="margin: 0px; padding: 0px; height: auto;" class="modal-dialog">
+      <div id="altModal" style="width: 100vw" class="modal-content">
+        <div style="padding: 0px;" class="modal-body">
+          <form class="modalform" action="">
+            <div class="modalform__div1 mb-3">
+              <h4>Recorrido</h4>
+              <div class="input-group">
+                <input class="form-control mb-2" placeholder="Origen" type="text">
+                <input class="form-control mb-3" placeholder="Destino" type="text">
+              </div>
+              <div class="input-group mb-5">
+                <input class="form-control mb-2" placeholder="Fecha Salida" type="text">
+                <input class="form-control mb-2" placeholder="Fecha Llegada" type="text">
+              </div>
+              <!-- <hr> -->
+              <h4>Costos</h4>
+              <div class="input-group">
+               <input class="form-control mb-3" type="text" placeholder="Litros Combustible">
+               <input class="form-control mb-3" type="text" placeholder="Valor Litro">
+              </div>
+              <div class="input-group">
+               <input type="text" class="form-control" placeholder="Cantidad Recorrida">
+               <input type="text" class="form-control" placeholder="Costo Total">
+              </div>
+            </div>
+            <!-- <hr> -->
+            <div class="modalform__div1">
+               <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Integrantes</a>
+              <div class="integrantes">
+                <div class="integrantes__conductor">
+                  <div class="integrantes__foto">
+                    
+                  </div>
+                </div>
+                <!--Se crean con ngfor dependiendo de la cantidad de pasajeros que posea el viaje-->
+                <div class="integrantes__pasajeros collapse" id="collapseExample">
+                  <div class="integrantes__foto"></div>
+                  <div class="integrantes__foto"></div>
+                  <div class="integrantes__foto"></div>
+                  <div class="integrantes__foto"></div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Origen</span>
+                    <input type="text" [(ngModel)]="DirOrigen" name="DirOrigen" class="form-control" aria-label="Origen"
+                      aria-describedby="basic-addon1" disabled>
+                  </div> -->
+            <!-- <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Destino</span>
+                    <input type="text" [(ngModel)]="DirDestino" name="DirDestino" class="form-control" disabled>
+                  </div> -->
+            <!-- <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Rol</span>
+                    <input type="text" [(ngModel)]="UsRol" name="RolViaje" class="form-control" disabled>
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Estado</span>
+                    <input type="text" [(ngModel)]="Estado" name="EstadoViaje" class="form-control" disabled>
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">GastoTotal</span>
+                    <input type="number" [(ngModel)]="GastoTotal" name="Gasto" class="form-control" [disabled]="modForm">
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Integrantes</span>
+                    <input type="text" class="form-control" [disabled]="modForm">
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Mi Costo</span>
+                    <input disabled type="text" class="form-control">
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Fecha Salida</span>
+                    <input type="text" [(ngModel)]="FechaSalida" name="Fecha" class="form-control" [disabled]="modForm">
+                  </div> -->
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- </div>
+      <hr> -->
+  <!-- </div>
+  </div> -->
+ 

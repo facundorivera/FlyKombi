@@ -1,0 +1,52 @@
+    <div class="panel">
+            <!--Heading-->
+            <!--Widget body-->
+            <div>
+                <div class="nano has-scrollbar" style="height:380px">
+                    <div class="nano-content pad-all" tabindex="0" style="right: -17px;">
+                        <ul *ngFor="let item of chat; index as i" class="list-unstyled media-block">
+                            <li *ngIf="item.IDEmisor===IDUsuario"   class="mar-btm">
+                                <div class="media-left">
+                                    <img  *ngIf="item.IDEmisor===IDUsuario" [src]="imagenusuario" class="img-circle img-sm" alt="Profile Picture">
+                                </div>
+                                <div  class="media-body pad-hor">
+                                    <div class="speech">
+                                        <a  class="media-heading">{{item.NombreEmisor}}</a>
+                                        <p>{{item.Mensaje}}</p>
+                                        <!-- <p class="speech-time">
+                                        <i class="fa fa-clock-o fa-fw"></i>{{item.Hora | date: 'shortTime'}}
+                                        </p> -->
+                                    </div>
+                                </div>
+                            </li>
+                             <li *ngIf="item.IDEmisor!==IDUsuario"  class="mar-btm">
+                                <div class="media-right">
+                                    <img  *ngIf="item.IDEmisor!==IDUsuario" [src]="imagenusuariob" class="img-circle img-sm" alt="Profile Picture">
+                                </div>
+                                <div  class="media-body pad-hor speech-right">
+                                    <div class="speech">
+                                        <a  class="media-heading">{{item.NombreEmisor}}</a>
+                                        <p>{{item.Mensaje}}</p>
+                                        <!-- <p class="speech-time">
+                                            <i class="fa fa-clock-o fa-fw"></i>{{item.Hora | date: 'shortTime'}}
+                                        </p> -->
+                                    </div>
+                                </div>
+                            </li> 
+                        </ul>
+                    </div>
+                <div class="nano-pane"><div class="nano-slider" style="height: 141px; transform: translate(0px, 0px);"></div></div></div>
+    
+                <!--Widget footer-->
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-9">
+                            <input  [(ngModel)]="newMensaje.Mensaje" type="text" placeholder="Ingrese mensaje..." class="form-control chat-input" name="Mensaje">
+                        </div>
+                        <div class="col-xs-3">
+                            <button (click)="EnviarMensaje()"  class="btn btn-primary btn-block" type="submit">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

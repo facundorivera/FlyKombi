@@ -1,0 +1,187 @@
+<div id="Contenedor" class="container-fluid">
+    <div class="row mb-3">
+      <div style="padding: 0px;" class="col-12 col-md-4 col-lg-3">
+        <div  class="single-property-area wow " data-wow-delay="200ms"
+          style="visibility: visible; animation-delay: 200ms; animation-name: fadeInUp;">
+  
+          <div class="property-thumb">
+            <img src="../../../assets/img/bg-img/6.jpg">
+          </div>
+  
+          <div style="background-color: #4e73df;" class="property-desc-area">
+  
+            <div class="property-title-seller">
+  
+              <div class="property-title">
+               <a class="nombreUsuario" (click)="ObtenerID(IDUserviaje)"><h4  style="color: black;">{{Nombre}} {{Apellido}}</h4></a>
+                <div class="d-flex justify-content-between">
+                  <span (click)="Resenias('Reseña favorable')" data-toggle="modal" data-target="#ReseñaBuena" style="color: black; cursor: pointer;"><i style="color: green; margin-right: 10px;"
+                      class="fas fa-thumbs-up"></i>{{CantBuena}}</span>
+                  <span (click)="Resenias('Reseña desfavorable')" data-toggle="modal" data-target="#ReseñaMala"  style="color: black; cursor: pointer;"><i style="color: red; margin-right: 10px;"
+                      class="fas fa-thumbs-down"></i>{{CantMala}}</span>
+                </div>
+              </div>
+            </div>
+  
+            <div class="property-info-area d-flex flex-wrap">
+              <p style="color: white;"><cite>{{MensajeGral}}</cite></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="Prueba" class="col-md-7 col-lg-8 infoviaje">
+        <div class="infoviaje__infoa">
+          <div  class="text-center origenData">
+            <span><i class="fas fa-map-marker-alt markOrigen"></i></span><h5 class="markOrigen">{{Origen}}</h5>
+          </div>
+           <div *ngIf="PrParada !==null"  class="text-center origenData">
+            <span><i *ngIf="PrParada !==null"  class="fas fa-map-marker-alt markOrigen"></i></span><p *ngIf="PrParada !==null" class="markOrigen">{{PrParada}}</p>
+          </div>
+           <div *ngIf="SgParada !==null"  class="text-center origenData">
+            <span><i *ngIf="SgParada !==null"  class="fas fa-map-marker-alt markOrigen"></i></span><p *ngIf="SgParada !==null" class="markOrigen">{{SgParada}}</p>
+          </div> 
+          <div *ngIf="TrParada !==null"  class="text-center origenData">
+            <span> <i *ngIf="TrParada !==null"  class="fas fa-map-marker-alt markOrigen"></i></span><p *ngIf="TrParada !==null" class="markOrigen">{{TrParada}}</p>
+          </div>
+          <div class="text-center destinoData">
+            <span><i class="fas fa-map-marker-alt markDestino"></i></span><h5 class="markDestino">{{Destino}}</h5>
+          </div>
+          <div  class="text-center origenData">
+            <span><i style="color: #4e73df;" class="fas fa-calendar-alt restIcons"></i></span><h5 class="fecha">{{FechaSalida}}</h5>
+          </div>
+          <div  class="text-center destinoData"> 
+            <span><i  class="fas fa-user-check restIcons" style="color: green;"></i></span><h5>{{CantIntegrantes}}</h5>
+          </div>
+        </div>
+        <div class="infoviaje__infob">
+            <div class="infoviaje__infobinfo">
+              <!--Validacion Mascotas-->
+              <span  *ngIf="PerMascota=='Si'" class="mb-2 spanIcon"><i class="fas fa-dog mr-2"></i>Permite Mascotas</span>
+              <span  *ngIf="PerMascota=='No'" class="mb-2 spanIcon"><img src="../../../assets/img/Propet.png" class="iconsImg" alt="imgMascota">No Mascotas</span>
+              <!--Validación Cigarrillo-->
+              <span class="spanIcon" *ngIf="PerFumar=='Si'"><i class="fas fa-smoking mr-2"></i>Permite Fumador</span>
+              <span class="spanIcon" *ngIf="PerFumar=='No'"><img class="iconsImg" src="../../../assets/img/Profumar.png" alt="imgFumador">No Fumar</span>
+              <!--Validación Bebe-->
+              <span class="spanIcon"  *ngIf="PerBebe=='Si'"><i class="fas fa-baby mr-2"></i>Bebe a bordo</span>
+              <span class="spanIcon" *ngIf="PerBebe=='No'"><img class="iconsImg" src="../../../assets/img/Probaby.png" alt="imgBebe" value="No">No bebe</span>
+            </div>
+            <div class="infoviaje__infoc">
+                <div>
+                    <!-- <h5>Distancia a Recorrer</h5> -->
+                    <p>Distancia a Recorrer</p>
+                    <p class="textInfo">{{DistText}}</p>
+                </div>
+                <div>
+                    <!-- <h5>Duracion viaje</h5> -->
+                    <p>Tiempo estimado</p>
+                    <p class="textInfo">{{DuraText}}</p>
+                </div>
+                <div class="mb-5 d-flex">
+                  <div>
+                    <img *ngFor="let item of src" class="integrantes" [src]="item" alt="Foto Usuario">
+                  </div>          
+                </div>
+                 <button data-toggle="modal" data-target="#exampleModal"  class="infoviaje__btnMensaje">Mensaje</button> 
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="mapa col-md-12 col-lg-12">
+        <div id="map"></div>
+  
+     </div>
+    </div>
+  <!--VENTANA MODAL-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"  aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Nuevo Mensaje</h5>
+            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <!-- <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Asunto:</label>
+                <input [(ngModel)]="Asunto"  type="text" class="form-control" name="Asunto">
+              </div> -->
+              <div  class="mb-3">
+                <label for="message-text" class="col-form-label">Mensaje:</label>
+                <textarea [(ngModel)]="mensaje"  class="form-control" name="mensaje"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button (click)="EnviarMensaje()"  type="button" class="btn btn-primary">Enviar Mensaje</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Modal Reseña-->
+    <div *ngIf="EstadoViaje=='Carpooleado'" class="modal fade"  id="ReseñaBuena" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div *ngIf="CalificaExiste===0" class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{Reseniabuena}}
+              <i  style="color: green;" class="fa fa-smile-o" aria-hidden="true"></i>
+            </h5>
+            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label *ngIf="CalificaExiste===0" for="recipient-name" class="col-form-label">{{MensajeReseniabuena}}</label>
+                <label *ngIf="CalificaExiste===1" for="recipient-name" class="col-form-label">{{MensajeReseniaGral}}</label>
+               
+                <!-- <input type="text" class="form-control" id="recipient-name"> -->
+              </div>
+              <div *ngIf="CalificaExiste===0" class="mb-3">
+                <label for="message-text" class="col-form-label">Comentario:</label>
+                <textarea name="Comentario" [(ngModel)]="calificacion.Comentario" class="form-control" id="message-text"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button *ngIf="CalificaExiste===0" (click)="AltaResenia()"  type="button" class="btn btn-primary">Puntuar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="EstadoViaje=='Carpooleado'" class="modal fade"  id="ReseñaMala" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div *ngIf="CalificaExiste===0" class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{Reseniamala}}
+              <i  style="color: red;" class="fa fa-frown-o" aria-hidden="true"></i>
+            </h5>
+            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label *ngIf="CalificaExiste===0" for="recipient-name" class="col-form-label">{{MensajeReseniamala}}</label>
+                <label *ngIf="CalificaExiste===1" for="recipient-name" class="col-form-label">{{MensajeReseniaGral}}</label>
+               
+                <!-- <input type="text" class="form-control" id="recipient-name"> -->
+              </div>
+              <div *ngIf="CalificaExiste===0" class="mb-3">
+                <label for="message-text" class="col-form-label">Comentario:</label>
+                <textarea name="Comentario" [(ngModel)]="calificacion.Comentario" class="form-control" id="message-text"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            <button *ngIf="CalificaExiste===0" (click)="AltaResenia()"  type="button" class="btn btn-primary">Puntuar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Fin Modal Reseña-->
+  
+  </div>
+  

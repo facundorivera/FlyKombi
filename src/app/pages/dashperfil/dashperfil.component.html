@@ -1,0 +1,243 @@
+<div id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i style="color: white;" class="fas fa-laugh-wink"></i>
+                </div>
+                <div style="color: white;" class="sidebar-brand-text mx-3">Fly Kombi</div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" routerLink='dashboard'>
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Información</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Menu
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li style="cursor: pointer;" class="nav-item">
+                <a class="nav-link collapsed"  data-toggle="collapse" data-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    <i class="fas fa-car"></i>
+                    <span>Viajes</span>   
+                </a>
+                <div  id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Mis Viajes</h6>
+                        <a class="collapse-item" routerLink='misviajes'>Publicados  </a>
+                        <a class="collapse-item" routerLink='viajessol'>Solicitados</a>
+                    </div>
+                </div>
+            </li>
+            <li style="cursor: pointer;" class="nav-item">
+                <a class="nav-link collapsed"  data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fa fa-bell"></i>
+                    <span>Solicitudes</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Solicitudes</h6>
+                        <a class="collapse-item" routerLink='solicitudenviada'>Enviadas</a>
+                        <a class="collapse-item" routerLink='solicitudes'>Recibidas</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Extra
+            </div>
+            <li style="cursor: pointer;" class="nav-item">
+                <a class="nav-link collapsed"  data-toggle="collapse" data-target="#collapseThree"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fa fa-id-card"></i>
+                    <span>Mi Perfil</span>
+                </a>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Perfil</h6>
+                        <a class="collapse-item" routerLink='perfil'>Mi datos</a>
+                         <a class="collapse-item" routerLink='calificacion'>Calificaciones</a> 
+                    </div>
+                </div>
+            </li>
+            <li style="cursor: pointer;" (click)="GetConversaciones()" class="nav-item">
+                <a class="nav-link collapsed"  data-toggle="collapse" data-target="#collapseFour"
+                    aria-expanded="true" aria-controls="collapseFour">
+                    <i class="fa fa-envelope"></i>
+                    <span>Conversaciones</span>
+                </a>
+                <div  id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Chat</h6>
+                        <a (click)="MostrarChat(item.ID)"  style="cursor: pointer;" *ngFor="let item of listConversaciones" class="collapse-item">{{item.Nombre}}</a>
+                    </div>
+                </div>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+            <!-- Sidebar Toggler (Sidebar) -->  
+            <div class="text-center d-none d-md-inline">
+                <button (click)="Probandojs()" class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>     
+        </ul>
+        <!-- End of Sidebar -->
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button (click)="Probandojs()" id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button> 
+
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a  class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i  class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter {{Hide}}">{{cantNotif}}</span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Notificaciones
+                                </h6>
+                                <a *ngFor="let item of listNotif; index as i" class="dropdown-item d-flex align-items-center">
+                                    <div  class="mr-3">
+                                        <div  class="icon-circle bg-warning">
+                                            <button (click)="LeerNotificacion(i)" style="background-color: transparent; border:none;"><i class="far fa-eye text-white"></i></button>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="item.RespCancelacion===null || item.RespCancelacion===''">
+                                        <div class="small text-gray-500">{{item.FechaSolicitud}}</div>
+                                        {{item.Mensaje}}
+                                    </div>
+                                    <div *ngIf="item.RespCancelacion!==null">
+                                        <div class="small text-gray-500">{{item.FechaSolicitud}}</div>
+                                        {{item.RespCancelacion}}
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Messages -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-envelope fa-fw"></i>
+                                <!-- Counter - Messages -->
+                                <span *ngIf="cantMensajes!==0" class="badge badge-danger badge-counter">{{cantMensajes}}</span>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="messagesDropdown">
+                                <h6 class="dropdown-header">
+                                    Mensajes
+                                </h6>
+                                 <a  (click)="ChatUsuario(item.IDEmisor,item.IDReceptor)" *ngFor="let item of listnoleidos; index as i" class="dropdown-item d-flex align-items-center">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img  class="rounded-circle" [src]="Convertimg(i)"
+                                            alt="">
+                                        <!-- <div class="status-indicator bg-success">
+                                        </div> -->
+                                    </div>
+                                     <div style="cursor: pointer;" class="font-weight-bold">
+                                        <div  class="text-truncate">{{item.Mensaje}}</div>
+                                        <div class="small text-gray-500">{{item.Emisor}}</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{sesion.Nombre}}</span>
+                                <img class="img-profile rounded-circle"
+                                   [src]="url">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <div class="dropdown-divider"></div>
+                                <a  style="cursor:pointer;" (click)="SalirDashboard()" class="dropdown-item">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Salir
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+           <router-outlet></router-outlet>
+            </div>
+            <!-- End of Main Content -->
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; FlyKombi 2021</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+        </div>
+        <!-- End of Content Wrapper -->
+    </div>
+</div>
+
+

@@ -1,0 +1,199 @@
+h5,p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+
+#map{
+    height: 100%;
+}
+
+.dflex{
+    display: flex;
+}
+
+.contenedorboton{
+    display:grid;
+    // align-content: space-evenly;
+    // align-items: flex-end;
+    // justify-content: center;
+    
+}
+
+.textarea{
+    margin-bottom: 25px;
+    height: 150px;
+    resize: none;
+}
+
+
+.contenedorViaje{
+    display: grid;
+    grid-template-columns: 20% 50% 30%;
+    grid-template-rows: 100%;
+    width: 90%;
+    margin-left: 50px;
+    box-sizing: border-box;
+    -webkit-box-shadow: 10px 10px 10px 5px #aaaaaa;
+    box-shadow: 10px 10px 10px 5px #aaaaaa;
+    justify-content: center;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+
+
+    &__valorEstimado{
+        display: grid;
+        justify-content: center;
+    }
+
+    &__btnCrear{
+        border: none;
+        height: 80px;
+        width: 150px;
+        //border-top: 1px solid black;
+        //border-left: 1px solid black;
+        border: 1px solid black;
+    
+    }
+
+    &__btnCrear:hover{
+        border-color: #92c800;
+        color: #92c800;
+    }
+}
+
+.titleEstimado{
+    display: grid;
+}
+
+.inputEstimado{
+
+    
+    &__gasoil{
+        color: #453823ff;
+    }
+
+    &__precioGas{
+        color:#35ff69ff
+    }
+
+    &__total{
+        color:#f7cb15ff
+    }
+}
+
+
+.inputOrigen{
+    border-color: orange;
+    color: orange;
+}
+
+.inputDestino{
+    border-color: green;
+    color: green;
+
+}
+
+.tipoUserBack{
+    background-color: #4e73df;
+    height: 20%;
+    color: black;
+    border-radius: 10px;
+}
+
+@media  only screen and (max-width:768px) {
+    html{
+        margin: 0px;
+        padding: 0px;
+    }
+    .contenedorViaje{
+        display: grid;
+        height: 1150px;
+        grid-template-rows: 20% 50% 30%;
+        grid-template-columns: 100%;
+        margin-left: 20px;
+        
+
+     &__tipoUsuario{
+          display: grid;
+         width: 100%;
+        }
+
+        &__datosViaje{
+            display: grid;
+            
+        }
+
+        &__valoresViaje{
+            display: grid;
+            width: 80%;
+            margin: auto;
+        }
+
+        &__valorEstimado{
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        &__btnCrear{
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+            height: 60px;
+        }
+
+
+    }
+
+    .titleEstimado{
+        display: none;
+    }
+
+    .inputEstimado{
+        height: 20%;
+    }
+    
+    .tipoUserBack{
+        background-color: #4e73df;
+        height: 80%;
+        color: black;
+        border-radius: 10px;
+    }
+
+    .textarea{
+        margin-bottom: 25px;
+        height: 100px;
+        resize: none;
+    }
+
+    .mensajegral{
+        display: grid;
+        margin-bottom: 30px;
+    }
+
+    .preferencias{
+        display:grid;
+        justify-content: start;
+        margin-bottom: 20px;
+    }
+
+    .tiempoViaje{
+         display:flex;
+         justify-content: start;
+         justify-items: start;
+    }
+
+
+    h5{
+        margin-right: 5px;
+    }
+
+    .contenedorboton{
+        display:grid;
+        justify-content: end;
+        align-items: flex-end;
+        height: 75%;
+        width:100%; 
+       }
+
+    
+}

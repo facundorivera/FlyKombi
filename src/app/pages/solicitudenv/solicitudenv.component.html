@@ -1,0 +1,79 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <h1 class="text-center">Solicitudes Enviadas</h1>
+        <hr>
+        <div style="height: 320px;" class="table-responsive mt-5 tableSol">
+          <table class="table table-bordered text-center">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Origen Viaje</th>
+                <th scope="col">Destino Viaje</th>
+                <th id="btnTable" scope="col">Fecha de Salida</th>
+                <th scope="col">Estado</th>
+                <th  scope="col" id="btnTable">Usuario</th>
+              </tr>
+            </thead>
+            <tbody class="tableSol__body" *ngFor="let sol of listadoSol">
+              <tr>
+                <th data-bs-toggle="modal" data-bs-target="#staticBackdrop" scope="row">{{sol.DirOrigen}}</th>
+                <td  data-bs-toggle="modal" data-bs-target="#staticBackdrop">{{sol.DirDestino}}</td>
+                <td data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="btnTable">{{sol.FechaSalida}}</td>
+                <td data-bs-toggle="modal" data-bs-target="#staticBackdrop">{{sol.EstadoSol}}</td>
+                <td data-bs-toggle="modal" data-bs-target="#staticBackdrop">{{sol.NombrePost}}</td>
+                
+                <!-- <td  id="btnTable" >
+                  <button class="tableSol__buttons Hide"><img style="height: 37px;" src="../../../assets/img/CheckViaje.png" alt=""></button>
+                  <button class="tableSol__buttons Hide "><img style="height: 50px;" src="../../../assets/img/RechazaViaje.png" alt=""></button>
+                </td> -->
+                
+              </tr>
+            </tbody>
+          </table>
+        <!-- </div>
+        <div class="tableSol__footer">
+          <div class="divFooter"><button  class="w-100 btnPend">Pendientes</button></div>
+          <div class="divFooter"><button  class="w-100 btnConf">Confirmadas</button></div>
+          <div class="divFooter"><button  class="w-100 btnRech">Rechazadas</button></div>
+        </div> -->
+  
+  
+        <!--Ventana Modal-->
+        <!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-body">
+                <form action="">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Nombre</span>
+                    <input type="text"  name="NombreSol" class="form-control" aria-label="Origen"
+                      aria-describedby="basic-addon1" disabled>
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Apellido</span>
+                    <input type="text"  name="DirDestino" class="form-control" disabled>
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Fecha Solicitud</span>
+                    <input type="text" name="FechaSol" class="form-control" disabled>
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Estado</span>
+                    <input type="text" name="EstadoSol" class="form-control" disabled>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button  type="button" class="btn btn-danger">Rechazar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Aceptar</button>
+                <button  type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <!--Fin de Ventana Modal-->
+  </div>
+  

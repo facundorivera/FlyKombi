@@ -1,0 +1,222 @@
+<!-- **** Welcome Maps Area Start **** -->
+<div  class=" wow fadeInUp" data-wow-delay="100ms">
+  <div class="google-maps">
+     <img style="background-position: center; background-size: cover;"  src="../../../assets/img/bg-img/pexels-wall.jpg">
+  </div>
+</div>
+<!-- **** Welcome Maps Area End **** -->
+
+<!-- **** Location Search Form Area **** -->
+<div class="rehomes-search-form-area wow fadeInUp" data-wow-delay="200ms">
+  <div class="container">
+    <div class="rehomes-search-form">
+      <form action="#" method="post">
+        <div class="row">
+          <div class="col-12 col-lg-10">
+            <div class="row justify-content-around">
+              <div class="col-12 col-md-6 col-lg-3">
+                <!-- <label class="text-success" for="">Origen</label> -->
+                <input class="form-control mb-10" placeholder="Origen" type="text" id="autocompletardesde">
+                <!-- <input class="form-control mb-10" ngx-google-places-autocomplete  #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)"/>  -->
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <!-- <label class="text-success" for="">Destino</label> -->
+                <input placeholder="Destino" class="form-control mb-10" type="text" id="autocompletarhasta">
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <!-- <label class="text-success" for="">Rol</label> -->
+                <!-- <select  name="Rol" id="Rol" class="form-control" [(ngModel)]="viaje.TipoUsuario">
+                  <option  disabled selected >Tipo Usuario</option>
+                  <option [ngValue]="'Conductor'">Conductor</option>
+                  <option [ngValue]="'Pasajero'">Pasajero</option>
+                </select> -->
+                <!-- <button class="btnTipoUsuario"></button> -->
+                <button (click)="TipoUsuario('Conductor')" class="btnTipoConductor"></button>
+                <button (click)="TipoUsuario('Pasajero')"  class="btnTipoPasajero"></button>
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <input [(ngModel)]="viaje.FechaSalida" placeholder="Fecha Salida" name="FechaSalida" class="form-control mb-10 mbtn" type="date">
+              </div>
+              <!-- <div class="col-12 col-md-6 col-lg-3">
+                <input class="form-control mb-10" placeholder="Primer Parada" type="text" id="autocompletarpr">
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <input class="form-control mb-10" placeholder="Segunda Parada" type="text" id="autocompletarsg">
+              </div>
+              <div class="col-12 col-md-6 col-lg-3">
+                <input class="form-control mb-10" placeholder="Tercer Parada" type="text" id="autocompletartr">
+              </div>
+              <div  class="col-12 col-md-6 col-lg-3">
+                <input hidden class="form-control mb-10" placeholder="Tercer Parada" type="text" id="autocompletarhasta">
+              </div> -->
+            </div>
+          </div>
+          <div class="col-12 col-lg-2">
+            <button type="button" (click)="BuscarViaje()" class="btn rehomes-search-btn">Buscar</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- **** Location Search Form Area **** -->
+
+
+
+<section class="mt-10">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div *ngIf="listado==0" class="section-heading text-center wow fadeInUp" data-wow-delay="200ms">
+          <h2>{{mensajeviaje}}</h2>
+        </div>
+      </div>
+
+      <!-- Single Property Area -->
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let lista of listaviaje; index as i">
+        <div class="single-property-area wow fadeInUp" data-wow-delay="200ms">
+          <!-- Property Thumb -->
+          <div class="property-thumb">
+            <img src="../../../assets/img/bg-img/6.jpg" alt="">
+          </div>
+
+          <!-- Property Description -->
+          <div class="property-desc-area">
+            <!-- Property Title & Seller -->
+            <div class="property-title-seller d-flex justify-content-between">
+              <!-- Title -->
+              <!-- Seller -->
+              <div class="property-seller">
+                <p>Usuario</p>
+                <h6>{{lista.Apellido}} {{lista.Nombre}}</h6>
+              </div>
+              <div class="property-seller">
+                <p>Tipo Usuario</p>
+                <h6 class="text-center" *ngIf="lista.TipoUsuario==='Conductor'">
+                  <i *ngIf="lista.Solicitud==null || lista.Solicitud=='Pendiente'"  class="fas fa-car"></i>
+                  <i *ngIf="lista.Solicitud=='Aceptada'" style="color:green;" class="fas fa-car"></i>
+                  <i *ngIf="lista.Solicitud=='Rechazada' || lista.Solicitud==='Dado de Baja'" style="color:red;" class="fas fa-car"></i></h6>
+                <h6 class="text-center" *ngIf="lista.TipoUsuario==='Pasajero'">
+                  <i *ngIf="lista.Solicitud==null"  class="fas fa-users"></i>
+                  <i *ngIf="lista.Solicitud=='Aceptada'" style="color:green;" class="fas fa-users"></i>
+                  <i *ngIf="lista.Solicitud==='Rechazada' || lista.Solicitud==='Dado de Baja'" style="color:red;" class="fas fa-users"></i>
+                </h6>
+              </div>
+            </div>
+            <!-- Property Info -->
+            <a (click)="GuardarID(i)"  routerLink="/datoviaje">
+              <div class="property-info-area d-flex flex-wrap">
+                <p>Desde: <span>{{lista.DirOrigen}}</span></p>
+                <p style="color:tomato" *ngIf="lista.DirPrParada!==null || lista.DirPrParada ==''" >Parada A: <span>{{lista.DirPrParada}}</span></p>
+                <p style="color:tomato" *ngIf="lista.DirSgParada!==null || lista.DirSgParada ==''" >Parada B: <span>{{lista.DirSgParada}}</span></p>
+                <p style="color:tomato" *ngIf="lista.DirTrParada!==null || lista.DirTrParada ==''" >Parada C: <span>{{lista.DirTrParada}}</span></p>
+                <p>Hasta: <span>{{lista.DirDestino}}</span></p>
+                <p>Salida: <span>{{lista.FechaSalida}}</span></p>
+                <p *ngIf="lista.TipoUsuario=='Pasajero'">Asientos Necesarios: <span>{{lista.EspaciosNeces}}</span></p>
+                <p *ngIf="lista.TipoUsuario=='Conductor'">Espacios Libres: <span>{{lista.EspaciosLibresPasaj}}</span>
+                </p>
+              </div>
+            </a>
+          </div>
+          <!-- Property Price -->
+          <div *ngIf="lista.EstadoViaje=='Abierto' && lista.Solicitud===null || lista.Solicitud==''" class="property-price">
+            <p class="badge-rent">{{lista.EstadoViaje}}</p>
+            <input (click)="GuardarID(i)" class="price" data-toggle="modal" value="Solicitar" data-target="#exampleModal" type="button" id="EstadoSoli{{lista.IDViaje}}">
+          </div>
+          <div *ngIf="lista.EstadoViaje=='Abierto' && lista.Solicitud==='Pendiente'" class="property-price">
+            <p class="badge-rent">{{lista.EstadoViaje}}</p>
+            <input class="price"
+               type="button" value="{{lista.Solicitud}}" disabled>
+          </div>
+          <div *ngIf="(lista.EstadoViaje=='Abierto' || lista.EstadoViaje=='Carpooleado') && lista.Solicitud=='Aceptada'" class="property-price">
+            <p class="badge-rent">{{lista.EstadoViaje}}</p>
+            <input class="price"
+               type="button" value="Aceptada" disabled>
+          </div>
+          <div *ngIf="(lista.EstadoViaje=='Abierto' || lista.EstadoViaje=='Carpooleado') && lista.Solicitud=='Rechazada'" class="property-price">
+            <p class="badge-rent">{{lista.EstadoViaje}}</p>
+            <input class="price"
+               type="button" value="Rechazada" disabled>
+          </div>
+          <div *ngIf="(lista.EstadoViaje=='Cerrado' || lista.EstadoViaje=='Cancelado' || lista.EstadoViaje=='Carpooleado') && lista.Solicitud==null" class="property-price">
+            <button type="button" style="width: 100%; background-color: #bd1e1eff;"
+              class="btnSolicitud">{{lista.EstadoViaje}}</button>
+          </div>
+        </div>
+      </div>
+      <!-- Button trigger modal -->
+      <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Terminos y Condiciones</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div>
+                Recomendamos Antes de mandar solicitud de asiento, mandale mensaje a la otra persona para coordinar
+                todo lo vinculado al viaje: punto de encuentro, punto de llegada,tamaño de bolsos, contribución para
+                combustible y peajes, etc. <br>
+                <br>
+                Si mandaste solicitud de asiento y te aceptan el pedido, se genera el compromiso de viaje. Habilitándose
+                la posibilidad de calificación solo despues de realizado el viaje.<br>
+                <br>
+                No Podrán calificarse si el viaje se cancela, o te bajas del viaje. <br>
+                <br>
+                No solicites si no tenés seguridad de que vas a viajar, muchas personas también están buscando el
+                mismo viaje que vos. Si ocurriera algo que te impida viajar, avisale lo más rápido que puedas a la
+                persona con que ibas a compartir el viaje. <br>         
+              </div>
+              <div *ngIf="TipoUserModal=='Conductor'">
+                <h4>¿Cuantos espacios necesitas?</h4>
+                <input type="number" min="1"  max="{{this.EspaciosDispo}}" [(ngModel)]="solicitud.AsientosNeces">
+              </div>       
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              <button type="button" (click)="Solicitar(IDViajeModal)" class="btn btn-primary">Solicitar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<!-- **** Partner Area Start **** -->
+<div class="partner-area wow fadeInUp" data-wow-delay="200ms">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="partner-logo-slide owl-carousel">
+          <!-- Single Partner Logo -->
+          <!-- <a href="#" class="partner-logo wow fadeInUp" data-wow-delay="100ms"><img
+              src="../../../assets/img/core-img/1.png" alt=""></a> -->
+          <!-- Single Partner Logo -->
+          <!-- <a href="#" class="partner-logo wow fadeInUp" data-wow-delay="300ms"><img
+              src="../../../assets/img/core-img/2.png" alt=""></a> -->
+          <!-- Single Partner Logo -->
+          <!-- <a href="#" class="partner-logo wow fadeInUp" data-wow-delay="500ms"><img
+              src="../../../assets/img/core-img/3.png" alt=""></a> -->
+          <!-- Single Partner Logo -->
+          <!-- <a href="#" class="partner-logo wow fadeInUp" data-wow-delay="700ms"><img
+              src="../../../assets/img/core-img/4.png" alt=""></a> -->
+          <!-- Single Partner Logo -->
+          <!-- <a href="#" class="partner-logo wow fadeInUp" data-wow-delay="900ms"><img
+              src="../../../assets/img/core-img/5.png" alt=""></a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- **** Partner Area End **** -->

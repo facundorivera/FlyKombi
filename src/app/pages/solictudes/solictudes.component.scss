@@ -1,0 +1,120 @@
+
+tr:hover{
+    color: black;
+    cursor: pointer;
+}
+
+h1{
+    font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    margin-bottom: 20px;
+}
+
+.btnSolicitud{
+    background-color: #4e73df;
+    border: none;
+    width: 50%;
+    height: 50px;
+}
+
+.btnSolicitud:hover{
+    background-color: #2e60f3;
+}
+
+.nombreSol:hover{
+    cursor: pointer;
+}
+
+.btnRedSocial{
+    background-color: #2e60f3;
+}
+
+
+.tableSol{
+  
+    &__body{
+        height: 250px;
+    }
+
+    &__footer{
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        height: 20%;
+    }
+
+    &__buttons{
+        background-color: transparent;
+        border: none;
+    }
+}
+
+.divFooter{
+   width: 33.3%;
+   height: 100%;
+}
+
+.btnFooter{
+    background-color: transparent;
+    border: none;
+    height: 100%;
+}
+
+.btnRech{
+    @extend .btnFooter;
+}
+
+.btnConf{
+    @extend .btnFooter;
+}
+
+.btnPend{
+    @extend .btnFooter
+}
+
+.btnRech:hover{
+    background-color: red;;
+}
+
+.btnConf:hover{
+    background-color: greenyellow;
+}
+
+.btnPend:hover{
+    background-color: orange;
+}
+
+
+.groupcheck{
+    display: flex;
+    justify-content: space-between;
+}
+
+.ordest{
+    color: black;
+}
+
+
+
+
+
+
+
+
+@media only screen and (max-width:768px){
+    #btnTable{
+        display: none;
+    }
+
+    .checkestado{
+        font-size: 13px;
+    }
+
+    .estado{
+        font-size: 15px;
+    }
+
+    .groupcheck{
+        display: grid;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,111 @@
+<!-- **** Breadcrumb Area Start **** -->
+<!-- <div class="breadcrumb-area bg-img bg-overlay-3 wow fadeInUp" data-wow-delay="200ms" style="background-image: url(../../assets/img/bg-img/30.jpg);">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center text-center">
+            <div class="col-12">
+                <div class="breadcrumb-content">
+                    <h2 class="page-title">Forma Parte de Nuestra Comunidad!</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- **** Breadcrumb Area End **** -->
+
+<!-- **** Contact Area Start **** -->
+<!-- <section class="rehomes-support-and-contact-area section-padding-80-0">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-8 col-md-6"> -->
+                <!-- Leave A Reply -->
+                <!-- <div class="rehomes-contact-form mb-80 wow fadeInUp border" data-wow-delay="200ms"> -->
+                    <!-- Title -->
+                    <!-- <div class="section-heading text-center wow">
+                        <h2>Datos<span>Login</span></h2>
+                    </div> -->
+                    <!-- Form -->
+                    <!-- <form class="support-form" method="#">
+                        <div class="row justify-content-center">
+                            <div class="col-8">
+                                <input type="text" [(ngModel)]="login.Usuario" name="Nombre" class="form-control mb-10" placeholder="Usuario">
+                            </div>
+                            <div class="col-8">
+                                <input type="password" [(ngModel)]="login.Contrasenia" name="Contrasenia" class="form-control mb-10" placeholder="Contraseña" >
+                            </div>
+                            <div class="col-8 text-center">
+                                <button type="button"(click)="LoginUsuario()" class="btn btn-success mb-20">Ingresar</button>
+                            </div>
+                        </div>
+                    </form> -->
+                <!-- </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<!-- **** Contact Area End **** -->
+
+<div class="container">
+
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+        <div class="col-xl-10 col-lg-12 col-md-9">
+
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">Bienvenido!</h1>
+                                </div>
+                                <form [formGroup]="FormLogin" class="user">
+                                    <div class="form-group">
+                                        <input [(ngModel)]="login.Usuario" formControlName="Usuario" type="email" class="form-control form-control-user"
+                                           [class.is-invalid]="FormLogin.get('Usuario').touched && FormLogin.get('Usuario').invalid" id="exampleInputEmail" aria-describedby="emailHelp"
+                                            placeholder="Enter Email Address...">
+                                    </div>
+                                    <div class="form-group">
+                                        <input formControlName="Contrasenia" [class.is.invalid]="FormLogin.get('Contrasenia').touched && FormLogin.get('Contrasenia').invalid" [(ngModel)]="login.Contrasenia" name="Contrasenia" type="password" class="form-control form-control-user"
+                                            id="exampleInputPassword" placeholder="Password">
+                                    </div>
+                                    <!-- <div class="form-group">
+                                        <div class="custom-control custom-checkbox small">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck">
+                                            <label class="custom-control-label" for="customCheck">Recordarme</label>
+                                        </div>
+                                    </div> -->
+                                    <button type="submit" (click)="LoginUsuario()" [disabled]="!FormLogin.valid" style="color:white;"  class="btn btn-primary btn-user btn-block">
+                                        Ingresar
+                                    </button>
+                                    <hr>
+                                    <!-- <a  class="btn btn-google btn-user btn-block g-signin2" data-onsuccess="onSignin">
+                                        <i class="fab fa-google fa-fw"></i> Ingresar con Google
+                                    </a> -->
+                                    <!-- <div class=" text-center g-signin2">
+                                        <i class="fab fa-google fa-fw"></i> Ingresar con Google
+                                    </div> -->
+                                    <!-- <a href="index.html" class="btn btn-facebook btn-user btn-block">
+                                        <i class="fab fa-facebook-f fa-fw"></i> Ingresar con Facebook
+                                    </a> -->
+                                </form>
+                                <!-- <hr> -->
+                                <!-- <div class="text-center">
+                                    <a class="small">Olvidaste la contraseña?</a>
+                                </div> -->
+                                <div class="text-center">
+                                    <a class="small" routerLink="/registro" >Crear una cuenta!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
