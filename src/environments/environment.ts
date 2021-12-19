@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_URL: 'http://www.flykombiapi.somee.com/',
+  API_URL: 'https://www.flykombiapi.somee.com/',
   firebase: 
     {
       apiKey: "AIzaSyA9qle7nT73YpfWdpTi1O8Lrhi3AZy9iSk",

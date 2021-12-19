@@ -30,9 +30,12 @@
               {
                 "glob": "**/*",
                 "input": "src/assets/",
-                "ignore": ["**/*.scss","**/*.less"],
+                "ignore": [
+                  "**/*.scss",
+                  "**/*.less"
+                ],
                 "output": "/assets/"
-              } ,            
+              },
               "src/manifest.webmanifest"
             ],
             "styles": [
@@ -111,9 +114,12 @@
               {
                 "glob": "**/*",
                 "input": "src/assets/",
-                "ignore": ["**/*.scss","**/*.less"],
+                "ignore": [
+                  "**/*.scss",
+                  "**/*.less"
+                ],
                 "output": "/assets/"
-              } ,     
+              },
               "src/manifest.webmanifest"
             ],
             "styles": [
@@ -146,8 +152,13 @@
               "devServerTarget": "SubiQueTeLlevoWeb:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "SubiQueTeLlevoWeb"
 }
