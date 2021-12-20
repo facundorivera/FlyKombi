@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1639898953461,
+  "timestamp": 1640006847419,
   "index": "https://facundorivera.github.io/FlyKombi/index.html",
   "assetGroups": [
     {
@@ -1960,7 +1960,7 @@
   ],
   "dataGroups": [],
   "hashTable": {
-    "https://facundorivera.github.io/FlyKombi/698.ea90eec0ea48fbe68931.js": "0646c1ecc2cf9ac8dd11cc25552b32750138dc4d",
+    "https://facundorivera.github.io/FlyKombi/698.ea90eec0ea48fbe68931.js": "36039b989aad61870842cdafd02af6277b402dcc",
     "https://facundorivera.github.io/FlyKombi/assets/.sass-cache/730eba273e30d531072b65a134e5bad478a97634/_color.scssc": "9a9f53cd90b21a8774ead14e33071224dbc95d04",
     "https://facundorivera.github.io/FlyKombi/assets/.sass-cache/730eba273e30d531072b65a134e5bad478a97634/_fonts.scssc": "097da2400d22737450f2d54830eb3d51baa77aa5",
     "https://facundorivera.github.io/FlyKombi/assets/.sass-cache/730eba273e30d531072b65a134e5bad478a97634/_responsive.scssc": "59ef61c1ec3fecd3b0813dbd222805bf0389f094",
@@ -2085,7 +2085,7 @@
     "https://facundorivera.github.io/FlyKombi/assets/img/Propet.png": "4ae0aa801f9495b054bf41526790e6796626f90f",
     "https://facundorivera.github.io/FlyKombi/assets/img/RechazaViaje.png": "5229d6024b0972f8839d22338a58963708514c34",
     "https://facundorivera.github.io/FlyKombi/assets/img/apple-touch-icon.png": "2a70c0370ffbaac9124d9eca97cadac47915c9d0",
-    "https://facundorivera.github.io/FlyKombi/assets/img/bg-img/6.jpg": "e045108fac0dc569e5cf3d3e2c5cd3d856500194",
+    "https://facundorivera.github.io/FlyKombi/assets/img/bg-img/6.jpg": "6772e87b13bb887ab4725a7fa68658103c24a838",
     "https://facundorivera.github.io/FlyKombi/assets/img/bg-img/64.jpg": "c4c5239cfea73874f8856d2fca6ba299aaab6fef",
     "https://facundorivera.github.io/FlyKombi/assets/img/bg-img/man.png": "1c53ec2ca5f5c908af63e6e5c130ce2eeeaaa55e",
     "https://facundorivera.github.io/FlyKombi/assets/img/bg-img/pexels-mapa.jpg": "ea3cb16f197f1a8ad28b544b1d9c71d74a6d82d8",
@@ -2135,7 +2135,7 @@
     "https://facundorivera.github.io/FlyKombi/assets/js/waypoints.min.js": "db485ca1040675f7e7b26e7aa800585b014934d8",
     "https://facundorivera.github.io/FlyKombi/assets/js/wow.min.js": "dfd8c0ad2927af63bd88984f1697d048b83eb41e",
     "https://facundorivera.github.io/FlyKombi/assets/notification/chat_alert.mp3": "788811c840765a2f2f3a8e1d232fc871e510a219",
-    "https://facundorivera.github.io/FlyKombi/assets/style.css": "4f52c2be63277349c8e3d44c30b1bf110dfa3c4a",
+    "https://facundorivera.github.io/FlyKombi/assets/style.css": "0e6c5c031d28d2fa2e6e774471bb321b0034b79a",
     "https://facundorivera.github.io/FlyKombi/assets/style.css.map": "f9cd7a6ed5591ae66fa36eb3cdc2057aa4d81411",
     "https://facundorivera.github.io/FlyKombi/assets/vendor/aos/aos.css": "0557d37454b67f42f2cb101e57e5070fb1193570",
     "https://facundorivera.github.io/FlyKombi/assets/vendor/aos/aos.js": "850ee2e5c9fba610840137c6c4e92b5abbc428fe",
